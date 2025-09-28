@@ -1,0 +1,43 @@
+int calls=0;
+int max_result=0;
+int factorial(int n){
+    int f,i;
+    calls=calls+1;
+    if(n<=1){
+        f=1;
+    }else{
+        i=2;
+        f=1;
+        while(i<=n){
+            f=f*i;
+            i=i+1;
+        };
+    }
+    if(f>max_result){
+        max_result=f;
+    }
+    return f;
+}
+void factorials(int s[],int a[],int len){
+    int i=0;
+    while(i<len){
+        a[i]=factorial(s[i]);
+        i=i+1;
+    }
+}
+int main(){
+    int s[4];
+    int a[4];
+    int i=0; 
+    while(i<4){
+        s[i]=getint();
+        i=i+1;
+    }
+    factorials(s,a,4);
+    putarray(4,a);
+    putint(calls);
+    putch(10);
+    putint(max_result);
+    putch(10);
+    return 0;
+}
